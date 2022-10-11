@@ -12,6 +12,9 @@ int columns = Convert.ToInt32(Console.ReadLine());
 int[,] numbers = new int[rows, columns];
 FillArray(numbers);
 PrintArray(numbers);
+ChangeRowsColumns(numbers);
+Console.WriteLine();
+PrintArray(numbers);
 
 
 void FillArray(int[,] numbers)
@@ -39,5 +42,26 @@ void PrintArray(int[,] numbers)
             Console.Write(numbers[i, j] + "\t");
         }
         Console.WriteLine();
+    }
+}
+void ChangeRowsColumns(int[,] numbers)
+{
+    // int rows = numbers.GetLength(0);
+    // int columns = numbers.GetLength(1);
+    Random random = new Random();
+    if (rows == columns)
+    {
+        int max_i = numbers.GetLength(1);
+        for (int i = 0; i < max_i; i++)
+        {
+            for (int j = i; j < max_i; j++)
+            {
+                (numbers[i, j], numbers[j,i]) = (numbers[j, i], numbers[i,j]);
+            }
+        }
+    }
+    else
+    {
+        Console.WriteLine("Задача невыполнима, строки и столбцы не равны.");
     }
 }

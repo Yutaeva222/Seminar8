@@ -43,14 +43,11 @@ void PrintArray(int[,] numbers)
 void ChangeArray(int[,] arr)
 {
     int tempValue;
-    for(int i = 0; i < arr.GetLength(0); i++)
+    for (int j = 0; j < arr.GetLength(1); j++)
     {
-        for(int j = 0; j < arr.GetLength(1); j++)
-        {
-            tempValue = arr[0,j];
-            arr[0,j] = arr[arr.GetLength(0)-1,j];
-            arr[arr.GetLength(0)-1,j] = tempValue;
-        }
+        tempValue = arr[0, j];
+        arr[0, j] = arr[arr.GetLength(0) - 1, j];
+        arr[arr.GetLength(0) - 1, j] = tempValue;
     }
     Console.WriteLine();
 }
