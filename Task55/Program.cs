@@ -51,12 +51,14 @@ void ChangeRowsColumns(int[,] numbers)
     Random random = new Random();
     if (rows == columns)
     {
-        int max_i = numbers.GetLength(1);
-        for (int i = 0; i < max_i; i++)
+        // int max_i = numbers.GetLength(1);
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = i; j < max_i; j++)
+            for (int j = i; j < columns; j++)
             {
-                (numbers[i, j], numbers[j,i]) = (numbers[j, i], numbers[i,j]);
+                int temp = numbers[i,j];
+                numbers[i,j] = numbers[j,i];
+                numbers[j,i] = temp;
             }
         }
     }
